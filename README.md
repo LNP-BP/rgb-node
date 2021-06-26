@@ -109,11 +109,11 @@ then run the following commands:
 
     git clone https://github.com/LNP-BP/rgb-node.git
     cd rgb-node
-    cargo build --release --bins
+    cargo install --all-features --bins --path .
 
 Now, to run the node you can execute
 
-    target/release/rgbd --data-dir ~/.rgb --bin-dir target/release -vvvv --contract fungible
+    rgbd --data-dir ~/.rgb --bin-dir ~/.cargo/bin -vvvv --contract fungible
 
 ### In docker
 
@@ -126,9 +126,9 @@ docker run --rm --name rgb_node rgb-node
 ## Using
 
 First, you need to start daemons:
-`rgbd -vvvv -d <data_dir> -b <bin_dir>, --contract fungible`
+`rgbd -vvvv -d <data_dir> -b <bin_dir> --contract fungible`
 where `bin_dir` is a directory with all daemons binaries (usually
-`target/release` from repo source after `cargo build --release --bins`
+`~/.cargo/bin` from repo source after `cargo install --all-features --bins --path .`
 command).
 
 Issuing token:
